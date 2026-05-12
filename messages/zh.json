@@ -1,0 +1,22 @@
+{
+  "Navigation": {
+    "home": "首页",
+    "about": "关于我们",
+    "services": "服务",
+    "team": "团队",
+    "blog": "新闻",
+    "faq": "常见问题",
+    "contact": "联系我们"
+  },
+  "Hero": {
+    "title": "[标题占位 - 等客户提供]",
+    "subtitle": "[副标题占位 - 等客户提供]",
+    "cta": "了解更多"
+  },
+  "Common": {
+    "loading": "加载中...",
+    "submit": "提交",
+    "send": "发送",
+    "languageSwitch": "切换语言"
+  }
+}
