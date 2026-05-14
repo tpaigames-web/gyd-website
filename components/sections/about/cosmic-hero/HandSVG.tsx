@@ -1,8 +1,11 @@
+import type { CSSProperties } from "react";
+
 type Props = {
   className?: string;
+  style?: CSSProperties;
 };
 
-export function HandSVG({ className }: Props) {
+export function HandSVG({ className, style }: Props) {
   return (
     <img
       src="/about/ok-hand.svg"
@@ -13,6 +16,7 @@ export function HandSVG({ className }: Props) {
       style={{
         userSelect: "none",
         WebkitUserDrag: "none" as never,
+        ...style,
       }}
     />
   );

@@ -251,7 +251,7 @@ export function CosmicHeroClient({
   return (
     <section
       ref={sectionRef}
-      className="cosmic-hero relative min-h-screen overflow-hidden"
+      className="cosmic-hero relative -mt-16 min-h-screen overflow-hidden"
       style={{
         background: "var(--gyd-bg, #E8E0D0)",
         color: "var(--gyd-fg, #3A2B1E)",
@@ -276,7 +276,7 @@ export function CosmicHeroClient({
 
       <div
         ref={introTextRef}
-        className="pointer-events-none absolute top-[10vh] left-1/2 z-20 w-full max-w-3xl -translate-x-1/2 px-6 text-center"
+        className="pointer-events-none absolute top-[14vh] left-1/2 z-20 w-full max-w-3xl -translate-x-1/2 px-6 text-center"
       >
         <h2 className="text-3xl font-black tracking-tight md:text-5xl lg:text-6xl">
           {introHeadline}
@@ -310,25 +310,24 @@ export function CosmicHeroClient({
 
       <div
         ref={handWrapRef}
-        className="pointer-events-none absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
-        style={{ width: "min(60vw, 56vh)", height: "min(60vw, 56vh)" }}
+        className="pointer-events-none absolute top-1/2 right-[4vw] z-20 -translate-y-1/2"
+        style={{ width: "min(46vw, 50vh)", height: "min(46vw, 50vh)" }}
       >
-        <HandSVG className="size-full object-contain" />
-        <div
-          ref={pinholeRef}
-          aria-hidden="true"
-          className="pointer-events-none absolute rounded-full bg-[var(--gyd-accent)]"
-          style={{
-            width: "10px",
-            height: "10px",
-            left: `${(25 / 48) * 100}%`,
-            top: `${(10 / 48) * 100}%`,
-            transform: "translate(-50%, -50%)",
-            boxShadow:
-              "0 0 24px 8px rgba(241,90,36,0.55), 0 0 64px 16px rgba(241,90,36,0.25)",
-          }}
-        />
+        <HandSVG className="block size-full object-contain" />
       </div>
+
+      <div
+        ref={pinholeRef}
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/2 left-1/2 z-30 rounded-full bg-[var(--gyd-accent)]"
+        style={{
+          width: "14px",
+          height: "14px",
+          transform: "translate(-50%, -50%)",
+          boxShadow:
+            "0 0 24px 8px rgba(241,90,36,0.55), 0 0 64px 16px rgba(241,90,36,0.25)",
+        }}
+      />
 
       <div ref={galaxyRef} className="absolute inset-0 z-25">
         <OrbitalSystem
