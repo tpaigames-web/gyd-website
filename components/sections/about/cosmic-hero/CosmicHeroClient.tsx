@@ -68,7 +68,6 @@ export function CosmicHeroClient({
   const stage1Ref = useRef<HTMLDivElement>(null);
   const dotsContainerRef = useRef<HTMLDivElement>(null);
   const dotRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const handRef = useRef<SVGSVGElement>(null);
   const handWrapRef = useRef<HTMLDivElement>(null);
   const pinholeRef = useRef<HTMLDivElement>(null);
   const galaxyRef = useRef<HTMLDivElement>(null);
@@ -314,7 +313,7 @@ export function CosmicHeroClient({
         className="pointer-events-none absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
         style={{ width: "min(60vw, 56vh)", height: "min(60vw, 56vh)" }}
       >
-        <HandSVG ref={handRef} className="size-full text-[var(--gyd-fg)]" />
+        <HandSVG className="size-full object-contain" />
         <div
           ref={pinholeRef}
           aria-hidden="true"
@@ -322,8 +321,8 @@ export function CosmicHeroClient({
           style={{
             width: "10px",
             height: "10px",
-            left: "calc(220 / 600 * 100%)",
-            top: "calc(320 / 600 * 100%)",
+            left: `${(25 / 48) * 100}%`,
+            top: `${(10 / 48) * 100}%`,
             transform: "translate(-50%, -50%)",
             boxShadow:
               "0 0 24px 8px rgba(241,90,36,0.55), 0 0 64px 16px rgba(241,90,36,0.25)",
