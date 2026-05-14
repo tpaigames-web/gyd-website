@@ -147,6 +147,8 @@ export function CosmicHeroClient({
             },
           });
 
+          const handMaxScale = isMobile ? 6 : 8;
+
           tl.to(
             introTextRef.current,
             { autoAlpha: 0, y: -10, duration: 0.12, ease: "power2.in" },
@@ -165,10 +167,17 @@ export function CosmicHeroClient({
               },
               0.3,
             )
+            // 手势第一段放大: 1 → 1.8 (chip 收拢同步)
             .to(
               handWrapRef.current,
-              { scale: 1.18, duration: 0.3, ease: "power2.inOut" },
-              0.32,
+              { scale: 1.8, duration: 0.25, ease: "power1.inOut" },
+              0.25,
+            )
+            // 手势第二段放大: 1.8 → 3.5
+            .to(
+              handWrapRef.current,
+              { scale: 3.5, duration: 0.2, ease: "power1.in" },
+              0.5,
             )
             .to(
               pinholeRef.current,
@@ -180,20 +189,20 @@ export function CosmicHeroClient({
               },
               0.48,
             )
-
-            .to(
-              pinholeRef.current,
-              { scale: 90, duration: 0.22, ease: "power2.in" },
-              0.62,
-            )
+            // 手势终段放大 + 淡出: 3.5 → max, 让位给 pinhole
             .to(
               handWrapRef.current,
               {
-                scale: 5.5,
+                scale: handMaxScale,
                 autoAlpha: 0,
                 duration: 0.22,
                 ease: "power2.in",
               },
+              0.62,
+            )
+            .to(
+              pinholeRef.current,
+              { scale: 90, duration: 0.22, ease: "power2.in" },
               0.62,
             )
             .to(
@@ -308,12 +317,18 @@ export function CosmicHeroClient({
         </div>
       </div>
 
+      {/* OUTER: 静态定位，让 SVG 几何中心 = 捏合点 = viewport center */}
       <div
-        ref={handWrapRef}
-        className="pointer-events-none absolute top-1/2 right-[4vw] z-20 -translate-y-1/2"
-        style={{ width: "min(46vw, 50vh)", height: "min(46vw, 50vh)" }}
+        className="pointer-events-none absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
+        style={{
+          width: "min(60vw, 72vh)",
+          height: "min(60vw, 72vh)",
+        }}
       >
-        <HandSVG className="block size-full object-contain" />
+        {/* INNER: GSAP 动画层，scale 围绕图片中心 (默认 50% 50%) */}
+        <div ref={handWrapRef} className="size-full">
+          <HandSVG className="block size-full object-contain" />
+        </div>
       </div>
 
       <div
