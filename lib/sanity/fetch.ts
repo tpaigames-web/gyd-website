@@ -2,6 +2,7 @@ import { client } from "./client";
 import {
   homepageQuery,
   siteSettingsQuery,
+  aboutPageQuery,
   servicesQuery,
   teamMembersQuery,
   featuredTestimonialsQuery,
@@ -11,6 +12,7 @@ import {
 import type {
   Homepage,
   SiteSettings,
+  AboutPage,
   Service,
   TeamMember,
   Testimonial,
@@ -24,6 +26,10 @@ export async function getHomepage(): Promise<Homepage | null> {
 
 export async function getSiteSettings(): Promise<SiteSettings | null> {
   return client.fetch(siteSettingsQuery);
+}
+
+export async function getAboutPage(): Promise<AboutPage | null> {
+  return client.fetch(aboutPageQuery);
 }
 
 export async function getServices(): Promise<Service[]> {

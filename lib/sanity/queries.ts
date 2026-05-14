@@ -20,3 +20,13 @@ export const siteSettingsQuery = `*[_type == "siteSettings"][0]{
   ...,
   "cowSounds": cowSounds[]{ _key, "url": asset->url }
 }`;
+
+// Pull aboutPage doc + project philosophy quotes from homepage doc
+// (single source of truth — edit homepage = updates About philosophy too).
+export const aboutPageQuery = `*[_id == "aboutPage"][0]{
+  ...,
+  "philosophyQuoteZh": *[_id == "homepage"][0].philosophyQuoteZh,
+  "philosophyQuoteEn": *[_id == "homepage"][0].philosophyQuoteEn,
+  "positioningQuoteZh": *[_id == "homepage"][0].positioningQuoteZh,
+  "positioningQuoteEn": *[_id == "homepage"][0].positioningQuoteEn
+}`;

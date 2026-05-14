@@ -86,6 +86,63 @@ export interface Homepage {
   seoDescriptionEn?: string;
 }
 
+export interface ServiceCategory {
+  _key: string;
+  nameZh?: string;
+  nameEn?: string;
+  blurbZh?: string;
+  blurbEn?: string;
+  iconHint?: string;
+}
+
+export interface AboutPage {
+  _id: string;
+  taglineZh?: string;
+  taglineEn?: string;
+  taglineHighlights?: string[];
+  taglineHighlightsEn?: string[];
+
+  brandStoryEnabled?: boolean;
+  brandStoryTitleZh?: string;
+  brandStoryTitleEn?: string;
+  brandStoryFormalName?: string;
+  brandStoryLowercaseMark?: string;
+  brandStoryAcronymZh?: string;
+  brandStoryAcronymEn?: string;
+  brandStoryPhilosophyZh?: string;
+  brandStoryPhilosophyEn?: string;
+  brandStoryNoteZh?: string;
+  brandStoryNoteEn?: string;
+
+  philosophyEnabled?: boolean;
+  philosophySectionTitleZh?: string;
+  philosophySectionTitleEn?: string;
+  // Following come from homepage doc via GROQ projection
+  philosophyQuoteZh?: string;
+  philosophyQuoteEn?: string;
+  positioningQuoteZh?: string;
+  positioningQuoteEn?: string;
+
+  categoriesEnabled?: boolean;
+  categoriesTitleZh?: string;
+  categoriesTitleEn?: string;
+  categoriesSubtitleZh?: string;
+  categoriesSubtitleEn?: string;
+  categories?: ServiceCategory[];
+
+  ctaEnabled?: boolean;
+  ctaTitleZh?: string;
+  ctaTitleEn?: string;
+  ctaButtonTextZh?: string;
+  ctaButtonTextEn?: string;
+  ctaButtonLink?: string;
+
+  seoTitleZh?: string;
+  seoTitleEn?: string;
+  seoDescriptionZh?: string;
+  seoDescriptionEn?: string;
+}
+
 export interface SiteSettings {
   _id: string;
   logo?: SanityImage;
