@@ -122,7 +122,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--gyd-bg);
+    color: var(--gyd-fg);
   }
   html {
     @apply font-sans;
@@ -130,23 +131,25 @@
 }
 
 /* ========================================
-   GYD theme tokens — used by BullMascotHero
-   Flipped to orange by body.flash-done class
-   (controlled by hero scroll progress in GSAP)
+   GYD brand tokens (per docs/MASTER_BRIEF §2.1 + DESIGN.md §2)
+   Default = cream theme. body.flash-done flips to orange theme.
+   Theme flip is controlled by GSAP ScrollTrigger in BullMascotHero
+   at scroll progress 0.88.
 ======================================== */
 :root {
-  --gyd-bg: #fffaf3;
-  --gyd-fg: #1a1611;
-  --gyd-accent: #ff5b1f;
-  --gyd-accent-soft: #ffe6d4;
-  --gyd-muted: #8a8477;
-  --gyd-line: rgba(26, 22, 17, 0.1);
+  --gyd-bg: #E8E0D0;          /* T-shirt cream, page background */
+  --gyd-fg: #3A2B1E;          /* deep brown, body text */
+  --gyd-accent: #F15A24;      /* brand orange, CTAs / dots */
+  --gyd-accent-soft: #FFE6D4; /* light peach, soft fills */
+  --gyd-muted: #9B9486;       /* warm gray, secondary text */
+  --gyd-line: rgba(58, 43, 30, 0.1);
+  --gyd-white: #FFFFFF;
 }
 
 body.flash-done {
-  --gyd-bg: #ff5b1f;
-  --gyd-fg: #fffaf3;
-  --gyd-accent: #fffaf3;
+  --gyd-bg: #F15A24;
+  --gyd-fg: #FAF6EF;
+  --gyd-accent: #FAF6EF;
   --gyd-accent-soft: rgba(255, 255, 255, 0.14);
   --gyd-muted: rgba(255, 250, 243, 0.65);
   --gyd-line: rgba(255, 250, 243, 0.22);
@@ -156,6 +159,24 @@ body {
   transition:
     background-color 0.7s ease,
     color 0.7s ease;
+}
+
+/* Map Tailwind/shadcn semantic vars to GYD tokens so shadcn components
+   (Card, Button, Header bg-background, etc.) also pick up the brand palette. */
+:root {
+  --background: #E8E0D0;
+  --foreground: #3A2B1E;
+  --card: #FFFFFF;
+  --card-foreground: #3A2B1E;
+  --primary: #F15A24;
+  --primary-foreground: #FAF6EF;
+  --muted: #FFE6D4;
+  --muted-foreground: #9B9486;
+  --accent: #FFE6D4;
+  --accent-foreground: #3A2B1E;
+  --border: rgba(58, 43, 30, 0.1);
+  --input: rgba(58, 43, 30, 0.1);
+  --ring: #F15A24;
 }
 
 /* Custom cursor enlarges when over interactive elements */

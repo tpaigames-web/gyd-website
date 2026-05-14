@@ -52,9 +52,9 @@ export function BullMascotHero({
       const s = document.createElement("div");
       s.className =
         "absolute left-1/2 top-1/2 size-2 -ml-1 -mt-1 rounded-full pointer-events-none";
-      if (i % 3 === 0) s.style.background = "#fff";
-      else if (i % 3 === 1) s.style.background = "#ffd9a8";
-      else s.style.background = "#ff5b1f";
+      if (i % 3 === 0) s.style.background = "#FFFFFF";
+      else if (i % 3 === 1) s.style.background = "#FFD9A8";
+      else s.style.background = "#F15A24";
       s.style.opacity = "0";
       s.style.transform = "translate(0,0) scale(0.4)";
       container.appendChild(s);
@@ -230,7 +230,7 @@ export function BullMascotHero({
     <section
       ref={heroRef}
       className="hero-section relative min-h-screen overflow-hidden"
-      style={{ background: "var(--gyd-bg, #fffaf3)", color: "var(--gyd-fg, #1a1611)" }}
+      style={{ background: "var(--gyd-bg, #E8E0D0)", color: "var(--gyd-fg, #3A2B1E)" }}
     >
       {/* Marquee background (big orange letters scrolling) */}
       <div className="pointer-events-none absolute inset-0 z-0 flex items-center overflow-hidden">
@@ -238,7 +238,7 @@ export function BullMascotHero({
           ref={marqueeRef}
           className="whitespace-nowrap text-[18vh] font-black"
           style={{
-            color: "var(--gyd-accent, #ff5b1f)",
+            color: "var(--gyd-accent, #F15A24)",
             opacity: 0.45,
           }}
         >
@@ -258,7 +258,7 @@ export function BullMascotHero({
           className="pointer-events-none absolute inset-0 rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgba(255,91,31,0.55) 0%, rgba(255,91,31,0) 60%)",
+              "radial-gradient(circle, rgba(241,90,36,0.55) 0%, rgba(241,90,36,0) 60%)",
             mixBlendMode: "screen",
           }}
         />
@@ -266,7 +266,7 @@ export function BullMascotHero({
         <div
           ref={ringRef}
           className="pointer-events-none absolute top-1/2 left-1/2 size-[40%] -translate-x-1/2 -translate-y-1/2 rounded-full border-4"
-          style={{ borderColor: "var(--gyd-accent, #ff5b1f)" }}
+          style={{ borderColor: "var(--gyd-accent, #F15A24)" }}
         />
       </div>
 
@@ -295,7 +295,7 @@ export function BullMascotHero({
           <p
             ref={subtitleRef}
             className="mb-8 max-w-2xl text-lg md:text-xl"
-            style={{ opacity: 0, color: "var(--gyd-muted, #8a8477)" }}
+            style={{ opacity: 0, color: "var(--gyd-muted, #9B9486)" }}
           >
             {subtitle}
           </p>
@@ -305,8 +305,8 @@ export function BullMascotHero({
             className="inline-block rounded-full px-8 py-4 font-bold transition-transform hover:scale-105"
             style={{
               opacity: 0,
-              background: "var(--gyd-accent, #ff5b1f)",
-              color: "var(--gyd-bg, #fffaf3)",
+              background: "var(--gyd-accent, #F15A24)",
+              color: "var(--gyd-bg, #E8E0D0)",
             }}
           >
             {ctaText}
