@@ -260,7 +260,7 @@ export function CosmicHeroClient({
   return (
     <section
       ref={sectionRef}
-      className="cosmic-hero relative -mt-16 min-h-screen overflow-hidden"
+      className="cosmic-hero relative -mt-16 w-full min-h-screen overflow-hidden"
       style={{
         background: "var(--gyd-bg, #E8E0D0)",
         color: "var(--gyd-fg, #3A2B1E)",
