@@ -30,6 +30,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// ISR: re-fetch siteSettings (Footer / WhatsApp / Sound) at most every 10s
+export const revalidate = 10;
+
 export const metadata: Metadata = {
   title: {
     default: "GYD Marketing | 管一点营销",

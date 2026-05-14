@@ -5,6 +5,10 @@ import { BullMascotHero } from "@/components/hero/BullMascotHero";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
+// ISR: refetch Sanity at most every 10 seconds. After velyn publishes a
+// change, refreshing the page within ~10s shows it live.
+export const revalidate = 10;
+
 export default async function HomePage({
   params,
 }: {
