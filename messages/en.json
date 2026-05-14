@@ -19,5 +19,23 @@
     "submit": "Submit",
     "send": "Send",
     "languageSwitch": "Switch Language"
+  },
+  "AboutCosmic": {
+    "dotChips": [
+      "A bit of Brand",
+      "A bit of Content",
+      "A bit of Social",
+      "A bit of Ads",
+      "A bit of Offline",
+      "A bit of Strategy",
+      "A bit of Creative",
+      "A bit of Data"
+    ],
+    "coreLabel": "CORE",
+    "finalCaptionLine1": "We only do a little.",
+    "finalCaptionLine2": "(a little bit of an entire universe)",
+    "introHeadline": "A little is enough.",
+    "introSubline": "We make brands seen · remembered · loved",
+    "serviceCtaAria": "{name} — Learn more"
   }
 }

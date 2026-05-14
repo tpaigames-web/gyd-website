@@ -19,5 +19,23 @@
     "submit": "提交",
     "send": "发送",
     "languageSwitch": "切换语言"
+  },
+  "AboutCosmic": {
+    "dotChips": [
+      "一点点品牌",
+      "一点点内容",
+      "一点点社媒",
+      "一点点投放",
+      "一点点线下",
+      "一点点策略",
+      "一点点创意",
+      "一点点数据"
+    ],
+    "coreLabel": "CORE",
+    "finalCaptionLine1": "我们只管一点点。",
+    "finalCaptionLine2": "（一整个宇宙的一点点）",
+    "introHeadline": "管一点，就够了。",
+    "introSubline": "我们只管让你的品牌被看见 · 记住 · 喜爱",
+    "serviceCtaAria": "{name} — 了解更多"
   }
 }
