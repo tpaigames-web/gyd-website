@@ -15,7 +15,6 @@ export function HandSVG({ className, style }: Props) {
       className={className}
       style={{
         userSelect: "none",
-        WebkitUserDrag: "none" as never,
         ...style,
       }}
     />
