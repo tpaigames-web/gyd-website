@@ -56,3 +56,53 @@ export interface BlogPost {
   coverImage?: SanityImage;
   publishedAt: string;
 }
+
+export interface Homepage {
+  _id: string;
+  heroEnabled?: boolean;
+  heroTitleZh?: string;
+  heroTitleEn?: string;
+  heroSubtitleZh?: string;
+  heroSubtitleEn?: string;
+  heroBackgroundType?: "image" | "video" | "gradient";
+  heroImage?: SanityImage;
+  heroCTATextZh?: string;
+  heroCTATextEn?: string;
+  heroCTALink?: string;
+  heroMarqueeTextZh?: string;
+  heroMarqueeTextEn?: string;
+  servicesEnabled?: boolean;
+  servicesTitleZh?: string;
+  servicesTitleEn?: string;
+  featuredServices?: Service[];
+  testimonialsEnabled?: boolean;
+  featuredTestimonials?: Testimonial[];
+  ctaEnabled?: boolean;
+  ctaTitleZh?: string;
+  ctaTitleEn?: string;
+  seoTitleZh?: string;
+  seoTitleEn?: string;
+  seoDescriptionZh?: string;
+  seoDescriptionEn?: string;
+}
+
+export interface SiteSettings {
+  _id: string;
+  logo?: SanityImage;
+  primaryColor?: string;
+  secondaryColor?: string;
+  phone?: string;
+  whatsappNumber?: string;
+  whatsappMessage?: string;
+  email?: string;
+  address?: string;
+  businessHours?: string;
+  socialMedia?: {
+    facebook?: string;
+    instagram?: string;
+    xiaohongshu?: string;
+    tiktok?: string;
+  };
+  googleBusinessProfile?: string;
+  cowSounds?: Array<{ _key: string; url?: string }>;
+}

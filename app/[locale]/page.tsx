@@ -1,5 +1,9 @@
-import { useTranslations } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getHomepage, getServices, getFeaturedTestimonials } from "@/lib/sanity/fetch";
+import { pickLocalized } from "@/lib/i18n-fields";
+import { BullMascotHero } from "@/components/hero/BullMascotHero";
+import { ServicesSection } from "@/components/sections/ServicesSection";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
 export default async function HomePage({
   params,
@@ -9,15 +13,43 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <HomeContent />;
-}
+  const [homepage, services, testimonials, t] = await Promise.all([
+    getHomepage(),
+    getServices(),
+    getFeaturedTestimonials(),
+    getTranslations("Hero"),
+  ]);
 
-function HomeContent() {
-  const t = useTranslations("Hero");
+  const title = pickLocalized(homepage, "heroTitle", locale, t("title"));
+  const subtitle = pickLocalized(homepage, "heroSubtitle", locale, t("subtitle"));
+  const ctaText = pickLocalized(homepage, "heroCTAText", locale, t("cta"));
+  const ctaLink = homepage?.heroCTALink ?? "/contact";
+  const marqueeText = pickLocalized(
+    homepage,
+    "heroMarqueeText",
+    locale,
+    "GROW YOUR DREAM",
+  );
+
   return (
-    <main className="container mx-auto px-4 py-20">
-      <h1 className="mb-4 text-4xl font-bold tracking-tight">{t("title")}</h1>
-      <p className="text-muted-foreground text-lg">{t("subtitle")}</p>
+    <main className="flex flex-col">
+      <BullMascotHero
+        title={title}
+        subtitle={subtitle}
+        ctaText={ctaText}
+        ctaLink={ctaLink}
+        marqueeText={marqueeText}
+      />
+      <ServicesSection
+        homepage={homepage}
+        fallbackServices={services}
+        locale={locale}
+      />
+      <TestimonialsSection
+        homepage={homepage}
+        fallbackTestimonials={testimonials}
+        locale={locale}
+      />
     </main>
   );
 }

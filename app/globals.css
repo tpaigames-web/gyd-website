@@ -128,3 +128,51 @@
     @apply font-sans;
   }
 }
+
+/* ========================================
+   GYD theme tokens — used by BullMascotHero
+   Flipped to orange by body.flash-done class
+   (controlled by hero scroll progress in GSAP)
+======================================== */
+:root {
+  --gyd-bg: #fffaf3;
+  --gyd-fg: #1a1611;
+  --gyd-accent: #ff5b1f;
+  --gyd-accent-soft: #ffe6d4;
+  --gyd-muted: #8a8477;
+  --gyd-line: rgba(26, 22, 17, 0.1);
+}
+
+body.flash-done {
+  --gyd-bg: #ff5b1f;
+  --gyd-fg: #fffaf3;
+  --gyd-accent: #fffaf3;
+  --gyd-accent-soft: rgba(255, 255, 255, 0.14);
+  --gyd-muted: rgba(255, 250, 243, 0.65);
+  --gyd-line: rgba(255, 250, 243, 0.22);
+}
+
+body {
+  transition:
+    background-color 0.7s ease,
+    color 0.7s ease;
+}
+
+/* Custom cursor enlarges when over interactive elements */
+.custom-cursor {
+  transition:
+    width 0.2s ease,
+    height 0.2s ease;
+}
+.custom-cursor.cursor-big {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: -1.25rem;
+  margin-top: -1.25rem;
+}
+
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
+}
