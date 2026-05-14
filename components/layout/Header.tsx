@@ -13,11 +13,11 @@ export function Header() {
 
   const links = [
     { href: "/", key: "home" },
-    { href: "/about", key: "about" },
     { href: "/services", key: "services" },
-    { href: "/team", key: "team" },
+    { href: "/cases", key: "cases" },
     { href: "/blog", key: "blog" },
     { href: "/faq", key: "faq" },
+    { href: "/about", key: "about" },
     { href: "/contact", key: "contact" },
   ] as const;
 

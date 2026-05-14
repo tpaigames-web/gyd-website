@@ -1,12 +1,13 @@
 {
   "Navigation": {
     "home": "首页",
-    "about": "关于我们",
     "services": "服务",
-    "team": "团队",
+    "cases": "案例",
     "blog": "新闻",
     "faq": "常见问题",
-    "contact": "联系我们"
+    "about": "关于我们",
+    "contact": "联系我们",
+    "team": "团队"
   },
   "Hero": {
     "title": "[标题占位 - 等客户提供]",

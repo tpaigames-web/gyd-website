@@ -1,12 +1,13 @@
 {
   "Navigation": {
     "home": "Home",
-    "about": "About",
     "services": "Services",
-    "team": "Team",
+    "cases": "Cases",
     "blog": "News",
     "faq": "FAQ",
-    "contact": "Contact"
+    "about": "About",
+    "contact": "Contact",
+    "team": "Team"
   },
   "Hero": {
     "title": "[Title placeholder - awaiting client]",
