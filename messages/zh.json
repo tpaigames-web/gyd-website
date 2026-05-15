@@ -20,6 +20,43 @@
     "send": "发送",
     "languageSwitch": "切换语言"
   },
+  "Seo": {
+    "siteName": "GYD Marketing",
+    "defaultTitle": "GYD Marketing | 管一点营销 — 新山营销代理",
+    "defaultDescription": "GYD Marketing(管一点营销)— 新山(JB)起家的全马营销代理。服务中小企业与品牌：小红书代运营、Facebook/Instagram 广告投放、内容创意、线下活动。Iskandar Puteri Johor。",
+    "home": {
+      "title": "GYD Marketing | 管一点营销 — JB 新山营销代理",
+      "description": "新山(Iskandar Puteri)起家的全马营销代理。被看见 · 记住 · 喜爱 — 帮中小企业与品牌做小红书运营、社交媒体广告、内容创意、线下活动。"
+    },
+    "about": {
+      "title": "关于我们 | 管一点营销",
+      "description": "我们只管一点点。GYD Marketing 是 JB 新山的全马营销代理，专注让品牌被看见、记住、喜爱。新山起家，服务全马中小企业与大企业。"
+    },
+    "services": {
+      "title": "营销服务 | GYD Marketing — 小红书代运营 · 社媒广告 · 内容创意",
+      "description": "JB 营销服务一站式：小红书代运营 · Facebook/Instagram 广告投放 · 品牌内容创意 · 线下活动策划。新山中小企业首选营销代理。"
+    },
+    "cases": {
+      "title": "成功案例 | GYD Marketing — JB 营销代理客户作品",
+      "description": "GYD Marketing 客户案例集：小红书曝光 · 品牌策划 · 社媒投放成果。看新山(Johor Bahru)中小企业怎么用营销把流量变销量。"
+    },
+    "blog": {
+      "title": "洞察与观点 | GYD Marketing — 马来西亚营销博客",
+      "description": "GYD Marketing 营销洞察：小红书运营心得、JB 本地推广策略、社媒平台趋势分析。新山营销代理的第一手实战观点。"
+    },
+    "faq": {
+      "title": "常见问题 | GYD Marketing — 外包营销 FAQ",
+      "description": "JB 营销代理怎么收费？小红书代运营要多久见效？GYD Marketing 把客户最常问的问题集中解答，帮你判断要不要外包营销。"
+    },
+    "contact": {
+      "title": "联系我们 | GYD Marketing — 新山(JB)营销代理",
+      "description": "想跟 GYD Marketing 聊聊营销？WhatsApp +6019-6721100，或邮件 hq@gydmarketing.co。新山办公室：Iskandar Puteri, Johor。"
+    },
+    "team": {
+      "title": "团队 | GYD Marketing — 新山营销代理团队",
+      "description": "GYD Marketing 团队介绍。一群在 JB 新山做营销的人，相信「管一点」就够 — 把品牌交给我们，专心做你最擅长的。"
+    }
+  },
   "AboutCosmic": {
     "dotChips": [
       "一点点品牌",

@@ -1,10 +1,7 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { getBlogPosts } from "@/lib/sanity/fetch";
-
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "http://localhost:3000";
+import { SITE_URL } from "@/lib/seo/metadata";
 
 // 主路由(去 locale 前缀)。每条会乘以 locales 数量生成 zh + en 两份。
 const ROUTES: Array<{

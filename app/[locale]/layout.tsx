@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { buildMetadata, SITE_URL } from "@/lib/seo/metadata";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/interactive/WhatsAppButton";
@@ -33,47 +34,49 @@ const geistMono = Geist_Mono({
 // ISR: re-fetch siteSettings (Footer / WhatsApp / Sound) at most every 10s
 export const revalidate = 10;
 
-export const metadata: Metadata = {
-  title: {
-    default: "GYD Marketing | 管一点营销",
-    template: "%s | GYD Marketing",
-  },
-  description:
-    "GYD Marketing(管一点营销)— 新鲜不一样的全马营销代理。新山起家,服务全马中小企业与大企业。Marketing agency in Iskandar Puteri, Johor.",
-  keywords: [
-    "marketing agency",
-    "outsource marketing",
-    "营销",
-    "小红书服务",
-    "营销管理",
-    "博主服务",
-    "申请蓝勾",
-    "小红书",
-    "Facebook",
-    "Instagram",
-    "新山营销公司",
-    "马来西亚营销公司",
-    "johor bahru marketing agency",
-    "johor bahru outsource marketing",
-    "GYD Marketing",
-    "管一点营销",
-  ],
-  authors: [{ name: "GYD Marketing" }],
-  openGraph: {
-    type: "website",
-    siteName: "GYD Marketing",
-    title: "GYD Marketing | 管一点营销",
-    description:
-      "新鲜不一样的全马营销代理。新山起家,服务全马中小企业与大企业。",
-    locale: "zh_CN",
-    alternateLocale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "GYD Marketing | 管一点营销",
-    description: "新鲜不一样的全马营销代理",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Seo" });
+
+  const base = buildMetadata({
+    locale,
+    path: "/",
+    title: t("defaultTitle"),
+    description: t("defaultDescription"),
+  });
+
+  // root layout 额外 metadata: metadataBase + title template + keywords + icons
+  return {
+    ...base,
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: t("defaultTitle"),
+      template: `%s | ${t("siteName")}`,
+    },
+    keywords: [
+      "marketing agency",
+      "outsource marketing",
+      "JB marketing agency",
+      "Johor Bahru marketing agency",
+      "Iskandar Puteri marketing",
+      "小红书代运营",
+      "新山营销公司",
+      "马来西亚营销公司",
+      "JB 广告公司",
+      "GYD Marketing",
+      "管一点营销",
+    ],
+    authors: [{ name: "GYD Marketing" }],
+    icons: {
+      icon: "/favicon.ico",
+      apple: "/favicon.ico",
+    },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

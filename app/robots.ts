@@ -1,8 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "http://localhost:3000";
+import { SITE_URL } from "@/lib/seo/metadata";
 
 // 仅生产环境开放抓取;预览/开发环境一律 noindex,防止预览域名被收录。
 const isProduction = process.env.VERCEL_ENV === "production";

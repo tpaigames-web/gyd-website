@@ -20,6 +20,43 @@
     "send": "Send",
     "languageSwitch": "Switch Language"
   },
+  "Seo": {
+    "siteName": "GYD Marketing",
+    "defaultTitle": "GYD Marketing — JB Johor Bahru Marketing Agency",
+    "defaultDescription": "GYD Marketing is a full-Malaysia marketing agency based in Iskandar Puteri, Johor Bahru. We handle Xiaohongshu, Facebook/Instagram ads, content creation, and offline campaigns for SMEs and brands across Malaysia.",
+    "home": {
+      "title": "GYD Marketing — JB Marketing Agency · Seen · Remembered · Loved",
+      "description": "Johor Bahru (JB) full-service marketing agency. Xiaohongshu management, social media ads, content creative, offline events. We make Malaysian brands seen, remembered, and loved."
+    },
+    "about": {
+      "title": "About | GYD Marketing — JB Johor Bahru Marketing Agency",
+      "description": "We only do a little — but we do it well. GYD Marketing is a full-Malaysia marketing agency from Iskandar Puteri, Johor. We make brands seen, remembered, and loved."
+    },
+    "services": {
+      "title": "Services | GYD Marketing — Xiaohongshu · Social Ads · Creative",
+      "description": "JB marketing services in one stop: Xiaohongshu (RED) management, Facebook/Instagram ads, brand content creative, offline event planning. Johor Bahru SMEs' first-choice agency."
+    },
+    "cases": {
+      "title": "Cases | GYD Marketing — JB Marketing Agency Work",
+      "description": "GYD Marketing client case studies: Xiaohongshu visibility, brand strategy, paid social results. See how Johor Bahru SMEs turn traffic into sales with us."
+    },
+    "blog": {
+      "title": "Insights | GYD Marketing — Malaysia Marketing Blog",
+      "description": "GYD Marketing insights: Xiaohongshu operation tips, JB local promotion strategy, social platform trend analysis. First-hand practical views from a JB marketing agency."
+    },
+    "faq": {
+      "title": "FAQ | GYD Marketing — Outsource Marketing FAQ",
+      "description": "How much does a JB marketing agency charge? How long does Xiaohongshu management take to show results? GYD Marketing answers the questions clients ask most."
+    },
+    "contact": {
+      "title": "Contact | GYD Marketing — Johor Bahru Marketing Agency",
+      "description": "Want to talk marketing with GYD? WhatsApp +6019-6721100 or email hq@gydmarketing.co. Our JB office: Iskandar Puteri, Johor, Malaysia."
+    },
+    "team": {
+      "title": "Team | GYD Marketing — JB Marketing Agency Team",
+      "description": "Meet the GYD Marketing team. A group of marketers in Johor Bahru who believe 'a little is enough' — hand us your brand, focus on what you do best."
+    }
+  },
   "AboutCosmic": {
     "dotChips": [
       "A bit of Brand",
