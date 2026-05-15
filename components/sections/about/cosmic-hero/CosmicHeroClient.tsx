@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLenis } from "@/hooks/useLenis";
@@ -32,18 +32,36 @@ type ChipLayout = {
   rotate: number;
 };
 
-function buildChipLayouts(labels: string[], count: number): ChipLayout[] {
-  const slots: Array<{ x: string; y: string; r: number }> = [
-    { x: "-32vw", y: "-22vh", r: -8 },
-    { x: "28vw", y: "-26vh", r: 6 },
-    { x: "-36vw", y: "8vh", r: -4 },
-    { x: "32vw", y: "12vh", r: 7 },
-    { x: "-22vw", y: "26vh", r: -10 },
-    { x: "22vw", y: "28vh", r: 5 },
-    { x: "-8vw", y: "-30vh", r: -3 },
-    { x: "6vw", y: "30vh", r: 4 },
-  ];
-  return labels.slice(0, count).map((label, i) => ({
+const DESKTOP_SLOTS: Array<{ x: string; y: string; r: number }> = [
+  { x: "-32vw", y: "-22vh", r: -8 },
+  { x: "28vw", y: "-26vh", r: 6 },
+  { x: "-36vw", y: "8vh", r: -4 },
+  { x: "32vw", y: "12vh", r: 7 },
+  { x: "-22vw", y: "26vh", r: -10 },
+  { x: "22vw", y: "28vh", r: 5 },
+  { x: "-8vw", y: "-30vh", r: -3 },
+  { x: "6vw", y: "30vh", r: 4 },
+];
+
+// Mobile: smaller offsets so chips fit in 375px viewport without overflow.
+// Also positioned ABOVE and BELOW the hand (which sits at viewport center),
+// so chips don't overlap the hand's body.
+const MOBILE_SLOTS: Array<{ x: string; y: string; r: number }> = [
+  { x: "-26vw", y: "-30vh", r: -6 },
+  { x: "24vw", y: "-32vh", r: 5 },
+  { x: "-28vw", y: "30vh", r: -4 },
+  { x: "26vw", y: "32vh", r: 6 },
+  { x: "0vw", y: "-38vh", r: -2 },
+];
+
+function buildChipLayouts(
+  labels: string[],
+  count: number,
+  isMobile: boolean,
+): ChipLayout[] {
+  const slots = isMobile ? MOBILE_SLOTS : DESKTOP_SLOTS;
+  const max = isMobile ? Math.min(count, 5) : count;
+  return labels.slice(0, max).map((label, i) => ({
     label,
     startX: slots[i % slots.length].x,
     startY: slots[i % slots.length].y,
@@ -74,6 +92,16 @@ export function CosmicHeroClient({
   const captionRef = useRef<HTMLDivElement>(null);
   const introTextRef = useRef<HTMLDivElement>(null);
   const bgFlashRef = useRef<HTMLDivElement>(null);
+
+  // 检测移动端用于响应式布局 (chip 数量 + 偏移 + 手势尺寸)
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -255,7 +283,7 @@ export function CosmicHeroClient({
     };
   }, []);
 
-  const chips = buildChipLayouts(dotChipLabels, 8);
+  const chips = buildChipLayouts(dotChipLabels, 8, isMobile);
 
   return (
     <section
@@ -319,11 +347,7 @@ export function CosmicHeroClient({
 
       {/* OUTER: 静态定位，让 SVG 几何中心 = 捏合点 = viewport center */}
       <div
-        className="pointer-events-none absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
-        style={{
-          width: "min(60vw, 72vh)",
-          height: "min(60vw, 72vh)",
-        }}
+        className="pointer-events-none absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 size-[min(48vw,42vh)] md:size-[min(60vw,72vh)]"
       >
         {/* INNER: GSAP 动画层，scale 围绕图片中心 (默认 50% 50%) */}
         <div ref={handWrapRef} className="size-full">

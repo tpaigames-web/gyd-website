@@ -14,8 +14,9 @@ export const DotChip = forwardRef<HTMLDivElement, Props>(function DotChip(
     <div
       ref={ref}
       className={
-        "pointer-events-none absolute inline-flex items-center gap-2 rounded-full " +
-        "px-4 py-2 text-sm font-semibold shadow-sm backdrop-blur-sm " +
+        "pointer-events-none absolute inline-flex items-center gap-1.5 rounded-full " +
+        "px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-sm " +
+        "md:gap-2 md:px-4 md:py-2 md:text-sm " +
         "bg-[var(--gyd-accent-soft)]/85 text-[var(--gyd-fg)] " +
         "ring-1 ring-[var(--gyd-line)] " +
         className
