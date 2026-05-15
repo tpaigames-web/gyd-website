@@ -57,6 +57,11 @@ export function buildMetadata({
     .filter((l) => l !== locale)
     .map((l) => LOCALE_TO_OG[l] ?? "en_MY");
 
+  // 默认 OG 图: 引用 app/[locale]/opengraph-image.tsx 自动生成的 PNG
+  // (单独设了自定义 openGraph 字段时 Next.js 不会自动注入 og:image)
+  const defaultOgImage = `${SITE_URL}/${locale}/opengraph-image`;
+  const ogImage = image ?? defaultOgImage;
+
   return {
     // absolute 绕过 root layout 的 title.template (i18n 已含 GYD Marketing 后缀)
     title: { absolute: title },
@@ -73,13 +78,13 @@ export function buildMetadata({
       url: canonical,
       locale: ogLocale,
       alternateLocale: alternateLocales,
-      images: image ? [{ url: image }] : undefined,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: image ? [image] : undefined,
+      images: [ogImage],
     },
     robots: noindex ? { index: false, follow: false } : undefined,
   };
