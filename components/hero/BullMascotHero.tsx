@@ -229,14 +229,14 @@ export function BullMascotHero({
   return (
     <section
       ref={heroRef}
-      className="hero-section relative min-h-screen overflow-hidden"
+      className="hero-section relative -mt-16 w-full min-h-screen overflow-hidden"
       style={{ background: "var(--gyd-bg, #E8E0D0)", color: "var(--gyd-fg, #3A2B1E)" }}
     >
       {/* Marquee background (big orange letters scrolling) */}
       <div className="pointer-events-none absolute inset-0 z-0 flex items-center overflow-hidden">
         <div
           ref={marqueeRef}
-          className="whitespace-nowrap text-[18vh] font-black"
+          className="whitespace-nowrap text-[11vh] md:text-[18vh] font-black"
           style={{
             color: "var(--gyd-accent, #F15A24)",
             opacity: 0.45,
@@ -249,7 +249,7 @@ export function BullMascotHero({
       {/* Mascot stage */}
       <div
         ref={mascotWrapRef}
-        className="pointer-events-none absolute top-1/2 left-1/2 z-10 size-[min(80vw,80vh)] -translate-x-1/2 -translate-y-1/2"
+        className="pointer-events-none absolute top-1/2 left-1/2 z-10 size-[min(72vw,52vh)] md:size-[min(80vw,80vh)] -translate-x-1/2 -translate-y-1/2"
       >
         <BullCanvas ref={canvasHandleRef} framesRef={frames} />
         {/* Lens glow */}
@@ -283,18 +283,18 @@ export function BullMascotHero({
       />
 
       {/* Hero text content */}
-      <div className="relative z-30 container mx-auto flex h-screen items-end px-4 pb-20">
+      <div className="relative z-30 container mx-auto flex h-screen items-end px-4 pb-12 md:pb-20">
         <div className="max-w-3xl">
           <h1
             ref={titleRef}
-            className="mb-6 text-5xl font-black tracking-tight md:text-7xl"
+            className="mb-4 text-3xl font-black tracking-tight md:mb-6 md:text-5xl lg:text-7xl"
             style={{ opacity: 0 }}
           >
             {title}
           </h1>
           <p
             ref={subtitleRef}
-            className="mb-8 max-w-2xl text-lg md:text-xl"
+            className="mb-6 max-w-2xl text-base md:mb-8 md:text-lg lg:text-xl"
             style={{ opacity: 0, color: "var(--gyd-muted, #9B9486)" }}
           >
             {subtitle}
@@ -302,7 +302,7 @@ export function BullMascotHero({
           <a
             ref={ctaRef}
             href={ctaLink}
-            className="inline-block rounded-full px-8 py-4 font-bold transition-transform hover:scale-105"
+            className="inline-block rounded-full px-6 py-3 text-sm font-bold transition-transform hover:scale-105 md:px-8 md:py-4 md:text-base"
             style={{
               opacity: 0,
               background: "var(--gyd-accent, #F15A24)",
